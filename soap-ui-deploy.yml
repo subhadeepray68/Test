@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: soap-ui-deployment
+  labels:
+    app: soap-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: soap-ui
+  template:
+    metadata:
+      labels:
+        app: soap-ui
+    spec:
+      containers:
+      - name: soap-ui
+        image: smartbear/soapuios-testrunner:latest
+        ports:
+        - containerPort: 80
